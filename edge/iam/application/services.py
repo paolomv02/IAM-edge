@@ -12,7 +12,7 @@ class AuthApplicationService:
     def register_rfid(self, rfid_code: str):
 
         # Genera api_key única
-        api_key = "API-KEY-X"
+        api_key = "secret-api-key"
 
         device = Device.create(
             rfid_code=rfid_code,

@@ -11,12 +11,14 @@ class TrackingRecordRepository:
             device_id=record.device_id,
             latitude=record.latitude,
             longitude=record.longitude,
+            speed = record.speed,
             created_at=record.created_at
         )
         return TrackingRecord(
             row.device_id,
             row.latitude,
             row.longitude,
+            row.speed,
             row.created_at,
             row.id
         )
@@ -33,6 +35,7 @@ class TrackingRecordRepository:
                 loc.device_id,
                 loc.latitude,
                 loc.longitude,
+                loc.speed,
                 created_at,
                 loc.id
             ))
@@ -51,6 +54,7 @@ class TrackingRecordRepository:
                 loc.device_id,
                 loc.latitude,
                 loc.longitude,
+                loc.speed,
                 created_at,
                 loc.id
             ))

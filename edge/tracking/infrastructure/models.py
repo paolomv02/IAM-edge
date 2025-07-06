@@ -6,6 +6,7 @@ class TrackingRecord(Model):
     device_id = CharField()
     latitude = FloatField()
     longitude = FloatField()
+    speed = FloatField()
     created_at = DateTimeField()
 
     class Meta:
