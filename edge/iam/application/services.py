@@ -9,15 +9,10 @@ def generate_mac_like_code() -> str:
 
 
 class AuthApplicationService:
-    def register_rfid(self):
-
-        rfid_code = generate_mac_like_code()
-
-        while Device.select().where(Device.rfid_code == rfid_code).exists():
-            rfid_code = generate_mac_like_code()
+    def register_rfid(self, rfid_code: str):
 
         # Genera api_key única
-        api_key = secrets.token_hex(16)
+        api_key = "API-KEY-X"
 
         device = Device.create(
             rfid_code=rfid_code,
@@ -27,4 +22,8 @@ class AuthApplicationService:
 
     def get_device_by_code_and_key(self, rfid_code: str, api_key: str):
         return Device.get_or_none(Device.rfid_code == rfid_code, Device.api_key == api_key)
+    
+    def get_device_by_rfid_code(self, rfid_code: str):
+        """Get device by RFID code only."""
+        return Device.get_or_none(Device.rfid_code == rfid_code)
 
